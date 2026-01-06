@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: gamerequest-db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gamerequest"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    environment:
+      POSTGRES_USER: gamerequest
+      POSTGRES_PASSWORD: changeme_secure_password
+      POSTGRES_DB: gamerequest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - gamerequest_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: gamerequest-redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - gamerequest_network
+
+  app:
+    image: ghcr.io/devini2111/gamerequest:latest
+    container_name: gamerequest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    environment:
+      # Database credentials
+      DB_PASSWORD: changeme_secure_password
+      
+      # IGDB API credentials - get from https://api.igdb.com/
+      IGDB_CLIENT_ID: your_igdb_client_id_here
+      IGDB_CLIENT_SECRET: your_igdb_client_secret_here
+      
+      # CORS origins (optional, "*" allows all)
+      CORS_ORIGINS: "*"
+    ports:
+      - "8075:8000"
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - gamerequest_network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  gamerequest_network:

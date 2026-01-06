@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+/* ==== Authentication Styles ==== */
+.setup-container, .login-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.setup-card, .login-card {
+  background: rgba(31, 41, 55, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(55, 65, 81, 0.3);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  min-width: 400px;
+}
+
+@media (max-width: 640px) {
+  .setup-card, .login-card {
+    min-width: unset;
+    max-width: 90vw;
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}
+
+.setup-header, .login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.setup-header h1, .login-header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f3f4f6;
+  margin-bottom: 0.5rem;
+}
+
+.setup-header h2, .login-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 0.5rem;
+}
+
+.setup-header p, .login-header p {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.setup-form, .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #f3f4f6;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.form-group input {
+  padding: 1rem;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  background-color: #1f2937;
+  color: #f3f4f6;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  min-height: 48px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #6b7280;
+}
+
+.setup-button, .login-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+  min-height: 56px;
+}
+
+.setup-button:hover, .login-button:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px -12px rgba(59, 130, 246, 0.4);
+}
+
+.setup-button:disabled, .login-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.error-message {
+  background-color: #ef4444;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 1rem 0;
+  border: 1px solid #dc2626;
+  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);
+}
+
+.setup-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 0.5rem;
+}
+
+.setup-info p {
+  color: #93c5fd;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Password Requirements Styles */
+.password-requirements {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background-color: rgba(55, 65, 81, 0.3);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+  border-radius: 0.5rem;
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.form-group input.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.login-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.help-text {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.setup-loading, .login-loading {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #f3f4f6;
+}
+
+.loading-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid #374151;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* User Role Badges */
+.role-admin {
+  background-color: #dc2626;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.role-user {
+  background-color: #10b981;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ==== Shine effect for cover container ==== */
+.game-cover-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.game-cover-container::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg) translateX(-200%);
+  pointer-events: none;
+  transition: transform 0.7s ease-out;
+}
+
+.game-cover-container:hover::after {
+  transform: rotate(45deg) translateX(200%);
+}
+
+/* src/index.css (Tailwind oder global) */
+/* scrollbar verstecken */
+.no-scrollbar {
+  scrollbar-width: none;            /* Firefox */
+  -ms-overflow-style: none;         /* IE 10+ */
+}
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Line clamp for text truncation */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

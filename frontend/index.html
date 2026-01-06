@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Favicon: provide multiple hints/sizes so browsers pick it reliably -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/logo.png" />
+    <link rel="shortcut icon" href="/src/assets/logo.png" />
+    <link rel="apple-touch-icon" href="/src/assets/logo.png" />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Wichtig: responsive Meta-Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>GameRequest - Game Request Management Tool</title>
+  </head>
+
+  <body class="min-h-screen w-full bg-gray-900">
+    <!-- Root container for React – w-full/h-full grants full width/height -->
+    <div id="root" class="w-full h-full"></div>
+
+    <!-- Vite bundles start the React app here -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

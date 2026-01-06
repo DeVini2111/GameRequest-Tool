@@ -1,0 +1,64 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+**/.env
+**/.env.*
+**/.env.production
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+game_requests.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules/
+venv/
+env/
+ENV/
+.venv
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Docker volumes (runtime)
+postgres_data/
+redis_data/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Python test/cache
+.pytest_cache/
+.mypy_cache/
+
+# Node cache
+.eslintcache
+.next/
+out/
+dev env
